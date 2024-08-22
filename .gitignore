@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+yarn.lock
+package-lock.json
+Gemfile.lock
+*.test.*
+/tests/testci.sh
+encrypt.sh
+decrypt.sh
+encode.sh
+decode.sh
