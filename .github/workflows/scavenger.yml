@@ -1,0 +1,69 @@
+name: Run Scavenger Hunt
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  execute_scavenger_hunt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Validate Tests
+        run: |
+          echo "50fc70bcd7733435d0c643fb8ab09a3e12b3b1ea38c919de16ac63b07fb82b87  javascript/javascript.test.js.gpg" | sha256sum --check --status
+          echo "715543af243c9c75f98a28e68f97ef0aea87453040ecac2cd05ae7258a6a8ff9  python/python.test.py.gpg" | sha256sum --check --status
+          echo "7b4b5fd00c0810981df64c824972b447cf30a3c5fe705c8b97e9a4f857a2a19a  ruby/ruby.test.rb.gpg" | sha256sum --check --status
+          echo "8d1ff5132065a463df7c1a0ae9d88c98612c95c2cdd5378dfef272ddc229beba  tests/testci.sh.gpg" | sha256sum --check --status
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.0"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r python/requirements.txt
+          npm install --prefix javascript
+          cd ruby && bundle install && cd ..
+
+      - name: Decrypt tests
+        env:
+          DECRYPT_SECRET: ${{ secrets.DECRYPT_SECRET }}
+        run: |
+          if [ -f tests/testci.sh.gpg ]; then
+            gpg --batch --yes --passphrase "$DECRYPT_SECRET" -d tests/testci.sh.gpg > tests/testci.sh
+
+            gpg --batch --yes --passphrase "$DECRYPT_SECRET" -d javascript/javascript.test.js.gpg > javascript/javascript.test.js
+            gpg --batch --yes --passphrase "$DECRYPT_SECRET" -d python/python.test.py.gpg > python/python.test.py
+            gpg --batch --yes --passphrase "$DECRYPT_SECRET" -d ruby/ruby.test.rb.gpg > ruby/ruby.test.rb
+            echo "All script files decrypted successfully"
+          else
+            exit 1
+          fi
+
+      - name: Run TestCI
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          GITHUB_ACTOR: ${{ vars.GITHUB_ACTOR }}
+        run: |
+          chmod +x ./tests/testci.sh
+          ./tests/testci.sh
