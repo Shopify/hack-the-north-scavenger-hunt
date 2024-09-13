@@ -5,6 +5,7 @@
 def first_ten_fibonacci():
     return []
 
+
 ## process_array(numbers)
 ## Args: An array of numbers
 ## Reverses the array
@@ -13,6 +14,7 @@ def first_ten_fibonacci():
 def process_array(numbers):
     return 0
 
+
 ## print_ascii_character()
 ## Args: A number
 ## Removes any duplicate digits in the number
@@ -20,11 +22,13 @@ def process_array(numbers):
 ## Multiplies that number by 4
 ## Returns the ASCII character that has the same value of the number
 def print_ascii_character(number):
-    return ''
+    return ""
+
 
 # If you need to run this script directly, you can add:
 if __name__ == "__main__":
     fibonacci = first_ten_fibonacci()
     summed = process_array(fibonacci)
     ascii = print_ascii_character(summed)
-    print(ascii)
+    print("h")
+
