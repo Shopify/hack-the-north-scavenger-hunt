@@ -18,10 +18,10 @@ jobs:
 
       - name: Validate Checksums
         run: |
-          echo "f0b3a736d78698c8010bd0e9e98dc4e2fde0961a  javascript/javascript.test.js.gpg" | sha256sum --check --status
-          echo "6d92dcf66fc11ca7fc4e66cbecc459f6570d7f00  python/python.test.py.gpg" | sha256sum --check --status
-          echo "921af0fab637efe9fe893e96ef679d0374c7b82d  ruby/ruby.test.rb.gpg" | sha256sum --check --status
-          echo "e03cd584fbd957fc8eba1960c676d5ce4546b76d  tests/testci.sh.gpg" | sha256sum --check --status
+          echo "50fc70bcd7733435d0c643fb8ab09a3e12b3b1ea38c919de16ac63b07fb82b87  javascript/javascript.test.js.gpg" | sha256sum --check --status
+          echo "715543af243c9c75f98a28e68f97ef0aea87453040ecac2cd05ae7258a6a8ff9  python/python.test.py.gpg" | sha256sum --check --status
+          echo "2e4a34b1baf9cc9ca99c9da24928f149aaa2e52a6744b99c1221ddb14828cf55  ruby/ruby.test.rb.gpg" | sha256sum --check --status
+          echo "1b8bba7a5988c328a9329bcb964b5605d32aa898673f4aeb3fc92948054b783a  tests/testci.sh.gpg" | sha256sum --check --status
 
       - name: Set up Python
         uses: actions/setup-python@v2
