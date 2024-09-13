@@ -1,1 +1,32 @@
-Ly8gZmlyc3RUZW5GaWJvbmFjY2koKQovLyBGaW5kcyB0aGUgMXN0IDEwIG51bWJlcnMgaW4gdGhlIEZpYm9uYWNjaSBTZXF1ZW5jZQovLyBTYXZlcyBlYWNoIG51bWJlciBhcyBlbGVtZW50cyBpbiBhbiBhcnJheQovLyBSZXR1cm5zIHRoYXQgYXJyYXkKZnVuY3Rpb24gZmlyc3RUZW5GaWJvbmFjY2koKSB7CiAgcmV0dXJuIFtdOwp9CgovLyBwcm9jZXNzQXJyYXkobnVtYmVycykKLy8gQXJnczogQW4gYXJyYXkgb2YgbnVtYmVycwovLyBSZXZlcnNlcyB0aGUgYXJyYXkKLy8gTXVsdGlwbGllcyBlYWNoIG51bWJlciBieSBpdCdzIGluZGV4ICogMgovLyBTdW1zIHRoZSBudW1iZXJzIGluIHRoZSBhcnJheSB0b2dldGhlciBhbmQgcmV0dXJucyBpdApmdW5jdGlvbiBwcm9jZXNzQXJyYXkobnVtYmVycykgewogIHJldHVybiAwOwp9CgovLyBwcmludEFzY2lpQ2hhcmFjdGVyKCkKLy8gQXJnczogQSBudW1iZXIKLy8gUmVtb3ZlcyBhbnkgZHVwbGljYXRlIGRpZ2l0cyBpbiB0aGUgbnVtYmVyCi8vIFJlcGxhY2VzIHRoZW0gd2l0aCBhIHNpbmd1bGFyIGluc3RhbmNlIGllOiAxMTAgPSAxMAovLyBNdWx0aXBsaWVzIHRoYXQgbnVtYmVyIGJ5IDQKLy8gUmV0dXJucyB0aGUgQVNDSUkgY2hhcmFjdGVyIHRoYXQgaGFzIHRoZSBzYW1lIHZhbHVlIG9mIHRoZSBudW1iZXIKZnVuY3Rpb24gcHJpbnRBc2NpaUNoYXJhY3RlcihudW1iZXIpIHsKICByZXR1cm4gJyc7Cn0KCmZpYm9uYWNjaSA9IGZpcnN0VGVuRmlib25hY2NpKCk7CnN1bW1lZCA9IHByb2Nlc3NBcnJheShmaWJvbmFjY2kpOwphc2NpaSA9IHByaW50QXNjaWlDaGFyYWN0ZXIoc3VtbWVkKTsKCmNvbnNvbGUubG9nKGFzY2lpKTs=
+// firstTenFibonacci()
+// Finds the 1st 10 numbers in the Fibonacci Sequence
+// Saves each number as elements in an array
+// Returns that array
+function firstTenFibonacci() {
+  return [];
+}
+
+// processArray(numbers)
+// Args: An array of numbers
+// Reverses the array
+// Multiplies each number by it's index * 2
+// Sums the numbers in the array together and returns it
+function processArray(numbers) {
+  return 0;
+}
+
+// printAsciiCharacter()
+// Args: A number
+// Removes any duplicate digits in the number
+// Replaces them with a singular instance ie: 110 = 10
+// Multiplies that number by 4
+// Returns the ASCII character that has the same value of the number
+function printAsciiCharacter(number) {
+  return 'h';
+}
+
+fibonacci = firstTenFibonacci();
+summed = processArray(fibonacci);
+ascii = printAsciiCharacter(summed);
+
+console.log(ascii);
