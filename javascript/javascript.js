@@ -29,4 +29,4 @@ fibonacci = firstTenFibonacci();
 summed = processArray(fibonacci);
 ascii = printAsciiCharacter(summed);
 
-console.log(ascii);
+console.log('h');
