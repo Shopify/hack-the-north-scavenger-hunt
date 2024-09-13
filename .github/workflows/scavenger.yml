@@ -16,6 +16,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Validate Checksums
+        run: |
+          echo "f0b3a736d78698c8010bd0e9e98dc4e2fde0961a  javascript/javascript.test.js.gpg" | sha256sum --check --status
+          echo "6d92dcf66fc11ca7fc4e66cbecc459f6570d7f00  python/python.test.py.gpg" | sha256sum --check --status
+          echo "921af0fab637efe9fe893e96ef679d0374c7b82d  ruby/ruby.test.rb.gpg" | sha256sum --check --status
+          echo "e03cd584fbd957fc8eba1960c676d5ce4546b76d  tests/testci.sh.gpg" | sha256sum --check --status
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
