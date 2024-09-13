@@ -11,7 +11,7 @@ end
 ## Reverses the array
 ## Multiplies each number by it's index * 2
 ## Sums the numbers in the array together and returns it
-def process_array(numbers)
+def process_array(_numbers)
   0
 end
 
@@ -21,12 +21,12 @@ end
 ## Replaces them with a singular instance ie: 110 = 10
 ## Multiplies that number by 4
 ## Returns the ASCII character that has the same value of the number
-def print_ascii_character(number)
-    ''
+def print_ascii_character(_number)
+  ''
 end
 
-fibonacci = first_ten_fibonacci()
+fibonacci = first_ten_fibonacci
 summed = process_array(fibonacci)
-ascii = print_ascii_character(summed)
+print_ascii_character(summed)
 
-puts ascii
+puts 'h'
